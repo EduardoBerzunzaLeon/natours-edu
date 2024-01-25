@@ -4,7 +4,7 @@ body {
     font-size: $default-font-size;
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem; /* El padding no se hereda*/
+    
 }
 
 .heading-primary{
@@ -12,6 +12,8 @@ body {
     text-transform: uppercase;
     backface-visibility: hidden; /* Sirve para ocultar la cara de atras sobre todo en transformaciones 3D y 2D con perspectiva, en este caso se implemento, por que al maestro le ocurria un error donde se alzaba unos pixeles el texto en plena animacion.*/
     margin-bottom: 6rem;
+
+    
 
     &--main{
         display: block;
@@ -23,6 +25,10 @@ body {
         animation-duration: 1s;
         animation-timing-function: ease-out;
         
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
         /* animation-iteration-count: 3; */
         /* animation-delay */
     }
@@ -35,6 +41,10 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -49,6 +59,14 @@ body {
     color: transparent;
     letter-spacing: .2rem;
     transition: all .2s;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+    
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skew(15deg, 2deg) scale(1.1);

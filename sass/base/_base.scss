@@ -7,14 +7,32 @@
     box-sizing: inherit; /* estable que la propiedad box-sizing puede ser heredada para todos los elementos, en este caso toma el border-box establecido en el body*/
 }
 
+// ORDER: Base + typography > general layout > > grid > page layout > components
 
 html {
     // this defines what 1rem is
     font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+    
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
 }
 
 body {
 
 
     box-sizing: border-box; /* hace que los bordes y paddings  se tomen encuenta para el tamaño definido de una caja.*/
+    padding: 3rem; /* El padding no se hereda*/
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
